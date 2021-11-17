@@ -10,10 +10,6 @@ public:
 	void operator=(const SingletonThreadLess& other) = delete;
 
 	float pValue() const;
-
-	void something();
-
-	//static float value() { return getInstance().pValue(); }
 		
 private:
 	SingletonThreadLess();
@@ -26,4 +22,3 @@ private:
 	
 };
 
-//SingletonThreadLess *SingletonThreadLess::instance;

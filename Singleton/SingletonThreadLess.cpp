@@ -26,6 +26,11 @@ float SingletonThreadLess::pValue() const
 	return number;
 }
 
+SingletonThreadLess::SingletonThreadLess()
+{
+	number = 0.5;
+}
+
 SingletonThreadLess::SingletonThreadLess(float value)
 	:number(value)
 {}
