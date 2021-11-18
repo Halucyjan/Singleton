@@ -1,10 +1,11 @@
 #include "SingletonThreadSafe.h"
 
 SingletonThreadSafe* SingletonThreadSafe::instance = nullptr;
-std::mutex SingletonThreadSafe::mutex_;
+std::mutex SingletonThreadSafe::s_mutex;
 
 SingletonThreadSafe* SingletonThreadSafe::get()
 {
+	std::lock_guard<std::mutex> lock(s_mutex);
 	if (instance == nullptr)
 	{
 		instance = new SingletonThreadSafe();
@@ -14,6 +15,7 @@ SingletonThreadSafe* SingletonThreadSafe::get()
 
 SingletonThreadSafe* SingletonThreadSafe::get(const float& value)
 {
+	std::lock_guard<std::mutex> lock(s_mutex);
 	if (instance == nullptr)
 	{
 		instance = new SingletonThreadSafe((float)value);

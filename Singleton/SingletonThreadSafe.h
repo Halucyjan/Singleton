@@ -18,7 +18,7 @@ private:
 	SingletonThreadSafe(float value);
 
 	static SingletonThreadSafe* instance;
-	static std::mutex mutex_;
+	static std::mutex s_mutex;
 
 	float Value() const;
 	float number;
